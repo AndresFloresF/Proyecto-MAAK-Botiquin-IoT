@@ -44,7 +44,7 @@ long ultimoEscaneo;     //la última vez que se realizó el escaneo de mensajes
 void manejarMensajes(int nuevoMensajes);
 String sendPhotoTelegram();
 // Indica cuando se apretó el timbre
-static void IRAM_ATTR pulsarTimbre(void * arg){
+static void IRAM_ATTR pulsarTimbre(){
   Serial.println("Botiquin abierto");
   timbre = true;
 }

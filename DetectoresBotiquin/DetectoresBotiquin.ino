@@ -2,7 +2,7 @@
 Preferences preferences;
 #define fsrpin 34
 #define fsrpin2 32
-#define Switch1 33
+#define Switch1 23
 #define Switch2 25
 #include <WiFiClientSecure.h>
 #include <WiFi.h>
@@ -19,34 +19,14 @@ long ultimoEscaneo;     //la última vez que se realizó el escaneo de mensajes
 void manejarMensajes(int nuevoMensajes);
 const char* Calibracion1="Calibracion1";
 const char* Calibracion2="Calibracion2";
-/*#include <Firebase_ESP_Client.h>
-//Provide the token generation process info.
-#include "addons/TokenHelper.h"
-//Provide the RTDB payload printing info and other helper functions.
-#include "addons/RTDBHelper.h"
-// Insert Firebase project API Key
-#define API_KEY "REPLACE_WITH_YOUR_FIREBASE_PROJECT_API_KEY"
-// Insert RTDB URLefine the RTDB URL */
-#define DATABASE_URL "REPLACE_WITH_YOUR_FIREBASE_DATABASE_URL"
-//Define Firebase Data object
-/*FirebaseData fbdo;
-
-FirebaseAuth auth;
-FirebaseConfig config;
-*/
 unsigned long sendDataPrevMillis = 0;
 int count = 0;
-bool signupOK = false;
-
 
 void setup() {
   Serial.begin(115200);
   pinMode(Switch1, INPUT);
   pinMode(Switch2, INPUT);
   WiFi.mode(WIFI_STA);
-  Serial.println();
-  Serial.print("Conectando a ");
-  Serial.println(ssid);
   WiFi.begin(ssid, password);
   clientTCP.setCACert(TELEGRAM_CERTIFICATE_ROOT); // Agregar certificado raíz para api.telegram.org
   while (WiFi.status() != WL_CONNECTED) {
@@ -64,28 +44,50 @@ void loop() {
     }
     ultimoEscaneo = millis();
   }
+  if (Serial.available()) {
+    String CadenaRecibida;
+    while(Serial.available()){
+      CadenaRecibida=Serial.readString();
+      if(!CadenaRecibida.substring(0,4).equals("rst"))
+        bot.sendMessage(idChat,CadenaRecibida, "");
+    }
+  }
 }
 
 void ObteniendoDatos(){
-  String CadenaDatos= ""; 
-  CadenaDatos+= "Cantidad Porcentual Objeto 1 = " 
-  CadenaDatos+= SensorPeso(fsrpin,Calibracion1);
-  CadenaDatos= "\nCantidad Porcentual Objeto 2 = "; 
-  CadenaDatos+= SensorPeso(fsrpin2,Calibracion2);
+  String MensajeTelegram= "Cantidad Objeto 1 = " ;
+  String CadenaDatos= SensorPeso(fsrpin,Calibracion1);
+  MensajeTelegram+=CadenaDatos;
+  MensajeTelegram+= "%\nCantidad Objeto 2 = "; 
+  CadenaDatos+=",";
+  String CadenaTemporal= SensorPeso(fsrpin2,Calibracion2);
+  MensajeTelegram+=CadenaTemporal;
+  CadenaDatos+=CadenaTemporal;
+  CadenaDatos+=",";
   bool DetectorObjeto3 = !digitalRead(Switch1);
   bool DetectorObjeto4 = !digitalRead(Switch2);
-  CadenaDatos += "\nDetección Objeto 3 = ";
-  if(DetectorObjeto3)
-    CadenaDatos+="Sí\n";
-  else
-    CadenaDatos+="No\n";
-  CadenaDatos+= "Detección Objeto 4 = ";
-  if(DetectorObjeto4)
-    CadenaDatos+="Sí\n";
-  else
-    CadenaDatos+="No\n";
-  CadenaDatos+="Información enviada a tu portal Web\n";
-  bot.sendMessage(idChat,CadenaDatos, "");
+  MensajeTelegram += "%\nDetección Objeto 3 = ";
+  if(DetectorObjeto3){
+    MensajeTelegram+="Sí\n";
+    CadenaDatos+="Sí";
+  }
+  else{
+    MensajeTelegram+="No\n";
+    CadenaDatos+="No";
+  }
+  MensajeTelegram+= "Detección Objeto 4 = ";
+  CadenaDatos+=",";
+  if(DetectorObjeto4){
+    MensajeTelegram+="Sí\n";
+    CadenaDatos+="Sí";
+  }
+  else{
+    MensajeTelegram+="No\n";
+    CadenaDatos+="No";
+  }
+  CadenaDatos+=",";
+  Serial.println(CadenaDatos);
+  bot.sendMessage(idChat,MensajeTelegram, "");
 }
 
 String SensorPeso(int PinSensorPeso,const char* Calibracion){ 
@@ -100,8 +102,8 @@ String SensorPeso(int PinSensorPeso,const char* Calibracion){
   String CadenaPeso= "No data";
   while (Nmedicion<10){
     LecturaActual = analogRead(PinSensorPeso);
-    if(((LecturaAnt+200)>LecturaActual) && (LecturaActual>LecturaAnt-200)){
-       PromLecturas+=LecturaActual;
+    if(((LecturaAnt+50)>LecturaActual) && (LecturaActual>LecturaAnt-50)){
+       PromLecturas+=LecturaActual/;
        Nmedicion++;
     }
     else{
@@ -109,6 +111,8 @@ String SensorPeso(int PinSensorPeso,const char* Calibracion){
        if(Intentos>10)
          LecturaAnt = analogRead(PinSensorPeso);
          Intentos=0;
+         Nmedicion=0;
+         PromLecturas=0;
     }
   }
   LecturaActual=PromLecturas/Nmedicion;
@@ -119,7 +123,7 @@ String SensorPeso(int PinSensorPeso,const char* Calibracion){
       preferences.end();
   }
   LecturaActual=(LecturaActual*100)/UltimaCalibracion;
-  CadenaPeso=String(LecturaActual)+"%";
+  CadenaPeso=String(LecturaActual);
   return CadenaPeso;
 }
 

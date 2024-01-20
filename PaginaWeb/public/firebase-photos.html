@@ -1,0 +1,95 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="NumeroDato"></h1>
+        <h2 id="TextoObjeto1"></h2>
+        <h2 id="TextoObjeto2"></h2>
+        <h2 id="TextoObjeto3"></h2>
+        <h2 id="TextoObjeto4"></h2>
+
+        <h1>Últimas 5 imágenes</h1>
+        <h2 id="TextoImagen1"></h2>
+        <h3><img src="" id="Imagen1"></h3>
+        <h2 id="TextoImagen2"></h2>
+        <h3><img src="" id="Imagen2"></h3>
+        <h2 id="TextoImagen3"></h2>
+        <h3><img src="" id="Imagen3"></h3>
+        <h2 id="TextoImagen4"></h2>
+        <h3><img src="" id="Imagen4"></h3>
+        <h2 id="TextoImagen5"></h2>
+        <h3><img src="" id="Imagen5"></h3>
+    </body>
+    <script src="jquery.min.js"></script>
+    <script type="module">
+        import{initializeApp} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAN-urMx6RGMWMh7bClbhsDb7N_QQkoBp8",
+          authDomain: "maak-samsung.firebaseapp.com",
+          databaseURL: "https://maak-samsung-default-rtdb.firebaseio.com",
+          projectId: "maak-samsung",
+          storageBucket: "maak-samsung.appspot.com",
+          messagingSenderId: "696470939311",
+          appId: "1:696470939311:web:c59f843ede252a7da4965a"
+        };
+      
+        const app=initializeApp(firebaseConfig);
+      
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        const auth = getAuth(app);
+        signInWithEmailAndPassword(auth,"andresdavid_2000@hotmail.com","Majito510#")
+          .then((UserCredential) =>{
+              console.log("logged in");
+          }).catch((error) =>{
+              TextoObjeto1.innerText= error.code;
+              TextoObjeto1.innerText+="\n"+ error.message;
+          });
+        
+        import{getDatabase, ref, get, child,onChildAdded} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+        const db =getDatabase();
+        function GetCantidadObjeto1(){
+            const ListaCantidadObjeto1 = ref(db,'BotiquinN1234/CantidadObjeto1/');
+            const ListaCantidadObjeto2 = ref(db,'BotiquinN1234/CantidadObjeto2/');
+            const ListaDeteccionObjeto3 = ref(db,'BotiquinN1234/DeteccionObjeto3/');
+            const ListaDeteccionObjeto4 = ref(db,'BotiquinN1234/DeteccionObjeto4/');
+            onChildAdded(ListaCantidadObjeto1, (data) => {
+                TextoObjeto1.innerText = "Cantidad Objeto 1 = "+data.val();
+            });
+            onChildAdded(ListaCantidadObjeto2, (data) => {
+                TextoObjeto2.innerText ="Cantidad Objeto 2 = "+ data.val();
+            });
+            onChildAdded(ListaDeteccionObjeto3, (data) => {
+                TextoObjeto3.innerText ="Detección Objeto 3 = "+ data.val();
+            });
+            onChildAdded(ListaDeteccionObjeto4, (data) => {
+                NumeroDato.innerText = "Actualización de datos Número "+data.key;
+                TextoObjeto4.innerText = "Detección Objeto 4 = "+ data.val();
+            });
+        }
+        window.addEventListener('load',GetCantidadObjeto1);
+
+        import{getMetadata,getStorage,getDownloadURL,list,listAll} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+        import{ref as referencia} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+        const storage = getStorage();
+        const listRef = referencia(storage,'Botiquin#xxx/');
+        var ImagesArrayList=[];
+        var UltimosUsos=[];
+        const PrimerasFotos = await list(listRef,{
+             maxResults:5
+        });
+        var i=0;
+        var j=0;
+        PrimerasFotos.items.forEach((itemRef) => {
+            getMetadata(itemRef).then((metaData)=>{
+                document.getElementById("TextoImagen"+(j+1)).textContent=metaData.timeCreated;
+                j++;
+            });
+            getDownloadURL(itemRef).then((url)=>{
+                document.getElementById("Imagen"+(i+1)).src=url;
+                i++;
+            });
+        });
+    </script>
+</html>

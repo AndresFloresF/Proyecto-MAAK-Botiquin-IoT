@@ -1,0 +1,23 @@
+[debug] [2024-01-19T21:43:59.749Z] ----------------------------------------------------------------------
+[debug] [2024-01-19T21:43:59.752Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-01-19T21:43:59.753Z] CLI Version:   13.0.3
+[debug] [2024-01-19T21:43:59.753Z] Platform:      win32
+[debug] [2024-01-19T21:43:59.753Z] Node Version:  v20.11.0
+[debug] [2024-01-19T21:43:59.753Z] Time:          Fri Jan 19 2024 15:43:59 GMT-0600 (hora estándar central)
+[debug] [2024-01-19T21:43:59.754Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-01-19T21:43:59.761Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-19T21:43:59.761Z] > authorizing via signed-in user (andredavid2000@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\andre\Documents\Arduino\Proyecto-MAAK-Botiquin-IoT\PaginaWeb
+
+[error] 
+[error] Error: Must select at least one feature. Use SPACEBAR to select features, or specify a feature by running firebase init [feature_name]
