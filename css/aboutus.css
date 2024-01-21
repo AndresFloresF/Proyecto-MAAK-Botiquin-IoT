@@ -1,0 +1,60 @@
+body {
+    
+    background-color:#1D1D1F;
+    background-size: cover;
+    position: fixed;
+  
+  }
+
+  .imagen_aboutus{
+    position: relative;
+    top: 106px;
+    width: 100%;
+  }
+
+  .mano{
+    position: relative;
+    width: 1600px;
+    height: 400px;
+    background-color: yellow;
+  }
+
+
+  .titulo_about{
+    z-index: 1000;
+    position: absolute;
+    color: white;
+    font-family:'Josefin Sans',sans-serif;
+    font-size: 60px;
+    left: 20px;
+    
+  }
+
+  .texto_h3{
+    position: relative;
+    top: 130px;
+    left: 20px;
+  }
+
+  .imagine_h3{
+    z-index: 1000;
+    position: absolute;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style:italic
+  }
+
+ 
+
+  .lorem_text{
+    font-size:medium;
+    z-index: 1000;
+    position: absolute;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-left: 30px;
+    padding-right: 100px;
+    top: 600px;
+
+  }
+
+
+
