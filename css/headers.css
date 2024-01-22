@@ -3,7 +3,10 @@ body {
   background-image: url("/img/Botiquin.png" ); 
   position: fixed;
   background-repeat: no-repeat;
-  
+  size: 20px;
+  background-size: 1600px;
+  background-position:center;
+  background-position-y:100px;
 
 }
 
