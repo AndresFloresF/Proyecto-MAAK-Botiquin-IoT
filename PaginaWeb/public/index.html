@@ -1,89 +1,116 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botiquin</title>
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.7.2/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/10.7.2/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.7.2/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+   
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    
+    
+</head>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
+
+<body>
+  <header>
+  <div class="navbar_grey">
+    <nav class= "navbar navbar-expand " >
+     <div id="pruebagris" class="container-fluid">
+       <a class="navbar-brand" href="/index.html"><img src="/img/MAAK.png" alt="" 
+         style="height: 80px;" > 
+        </a>
+       
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"style="text-align: center;">
+         <span class="navbar-toggler-icon"></span >
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="#" style="color: white;">Shop</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#" style="color: white;">Guide</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/aboutus.html"style="color: white;">About us</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/dashboard.html" style="color: white;">My Dashboard</a>
+           </li>
+           
+           
+         </ul>
+
+         
+         
+         <nav class="navbar">
+             <form class=" ">
+               <button class="boton1" type="button" >Sign up </button>
+               <button class="boton2" type="button" >Sign in</button>
+             </form>
+             <!--<img src="/img/LogoUsuario.png" alt="" id="logo_usuario" style="height: 50px; color: white;">-->
+           </nav>
+       
+          </div>
+      
+     </div>
+   </nav>
+
+ </div> 
+</header>
+
+  <!--Aquí inicia la segunda sección después del navbar-->
+  <div >
+    <img class="linea_curva" src="/img/—Pngtree—cartoon white line download_4476733.png" alt="">
+  </div>
+  
+<div class="LineasAmarillas">
+  <img src="/img/LineasAmarillas.png" alt="">
+</div>
+ <div class="title_div">
+    <h1 class="title">FIRST <br> INTELLIGENT</br>AID KID</h1>
+  </div>
+
+  <div class="material">
+
+    <h3 class="material_font">CAMERA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MATERIAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.5"</h3>
+
+    <h4 class="rear">Rear Camera </h4>
+    <h4 class="storage">Storage Room </h4>
+    <h4 class="view">Full View Display </h4>
+
+   </div>
+
+
+
+  
+
+  <div class="product_button">
+  <button type="button" class="button">VIEW PRODUCT</button>
+  </div>
+
+ <div class="canva_black">
+  <img src="https://media-public.canva.com/uxy7E/MAFS7vuxy7E/1/wm_s.png" alt="">
+ </div>
+
+
+    <img src="data:image/jpeg;base64,{{imageData}}" />
+
+    <!--script de bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!--script de firebase-->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js"></script>
+    <script src="/botiquin.js"></script>
+
   </body>
+</body>
 </html>

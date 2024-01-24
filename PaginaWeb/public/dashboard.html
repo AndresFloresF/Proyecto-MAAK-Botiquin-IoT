@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Dashboard</title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+ 
+
+
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+   <link href="/css/carrusel.css" rel="stylesheet">
+   <link href="/css/header.css" rel="stylesheet">
+
+
+
+
+<body>
+
+  <header class="header">
+    <div class="navbar_grey">
+      <nav class= "navbar navbar-expand " >
+       <div id="pruebagris" class="container-fluid">
+         <a class="navbar-brand" href="/index.html"><img src="/img/MAAK.png" alt="" 
+           style="height: 80px;" > 
+          </a>
+         
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"style="text-align: center;">
+           <span class="navbar-toggler-icon"></span >
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="#" style="color: white;">Shop</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="#" style="color: white;">Guide</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/aboutus.html"style="color: white;">About us</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/dashboard.html" style="color: white;">My Dashboard</a>
+             </li>
+             
+             
+           </ul>
+  
+           
+           
+           <nav class="navbar">
+               <form class=" ">
+                 <button class="boton1" type="button" >Sign up </button>
+                 <button class="boton2" type="button" >Sign in</button>
+               </form>
+               <!--<img src="/img/LogoUsuario.png" alt="" id="logo_usuario" style="height: 50px; color: white;">-->
+             </nav>
+         
+            </div>
+        
+       </div>
+     </nav>
+  
+   </div> 
+  </header>
+  <!--Aquí inicia la segunda sección después del navbar-->
+
+
+	<div class="contenedor">
+
+      <h4 class="botellas_texto">Contenido de tus botellas:</h4>
+		  
+      <main class="contenido-principal">
+			<img  src="img/alcohol.png" alt="Dome of the German Bundestag" class="contenido-principal__imagen">
+      <h6 id="TextoObjeto1"class="alcohol"></h6>
+      <img  src="img/alcohol.png" alt="Dome of the German Bundestag" class="contenido-principal__imagen">
+			<div class="contenido-principal__contenedor">
+				<h1 class="contenido-principal__titulo">Dome of the German Bundestag</h1>
+				<p class="contenido-principal__resumen">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a commodo orci. Nulla ipsum ante, auctor a odio id, bibendum accumsan mauris.
+				</p>
+				<p class="contenido-principal__resumen">
+					Fusce malesuada mollis ante, at elementum mi maximus nec. Praesent volutpat, tortor sed condimentum sagittis, mi diam fringilla nibh.
+				</p>
+			</div>
+		</main>
+
+    <div class="texto_img">
+      <h3 class="img_tomadas">Imagenes tomadas por tu botiquin recientemente:</h3>
+    </div>
+		<div class="carousel">
+      
+			<div class="carousel__contenedor">
+				<button aria-label="Anterior" class="carousel__anterior">
+					<i class="fas fa-chevron-left"></i>
+				</button>
+
+				<div class="carousel__lista">
+					<div class="carousel__elemento">
+						<img id="Imagen1" alt="Rock and Roll Hall of Fame">
+						<p>Rock and Roll Hall of Fame</p>
+					</div>
+					<div class="carousel__elemento">
+						<img id="Imagen2" alt="Constitution Square - Tower I">
+						<p>Constitution Square - Tower I</p>
+					</div>
+					<div class="carousel__elemento">
+						<img id="Imagen3" alt="Empire State Building">
+						<p>Empire State Building</p>
+					</div>
+					<div class="carousel__elemento">
+						<img id="Imagen4" alt="Harmony Tower">
+						<p>Harmony Tower</p>
+					</div>
+	
+					<div class="carousel__elemento">
+						<img id="Imagen5" alt="Empire State Building">
+						<p>Empire State Building</p>
+					</div>
+					<div class="carousel__elemento">
+						<img id="Imagen6" alt="Harmony Tower">
+						<p>Harmony Tower</p>
+					</div>
+					<div class="carousel__elemento">
+						<img id="Imagen7" alt="Empire State Building">
+						<p>Empire State Building</p>
+					</div>
+					<div class="carousel__elemento">
+						<img id="Imagen8" alt="Harmony Tower">
+						<p>Harmony Tower</p>
+					</div>
+				</div>
+
+				<button aria-label="Siguiente" class="carousel__siguiente">
+					<i class="fas fa-chevron-right"></i>
+				</button>
+			</div>
+
+			<div role="tablist" class="carousel__indicadores"></div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="/js/app.js"></script>
+	<script src="jquery.min.js"></script>
+    <script type="module">
+        import{initializeApp} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAN-urMx6RGMWMh7bClbhsDb7N_QQkoBp8",
+          authDomain: "maak-samsung.firebaseapp.com",
+          databaseURL: "https://maak-samsung-default-rtdb.firebaseio.com",
+          projectId: "maak-samsung",
+          storageBucket: "maak-samsung.appspot.com",
+          messagingSenderId: "696470939311",
+          appId: "1:696470939311:web:c59f843ede252a7da4965a"
+        };
+      
+        const app=initializeApp(firebaseConfig);
+      
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        const auth = getAuth(app);
+        signInWithEmailAndPassword(auth,"andresdavid_2000@hotmail.com","Majito510#")
+          .then((UserCredential) =>{
+              console.log("logged in");
+          }).catch((error) =>{
+              TextoObjeto1.innerText= error.code;
+              TextoObjeto1.innerText+="\n"+ error.message;
+          });
+        
+        import{getDatabase, ref, get, child,onChildAdded} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+        const db =getDatabase();
+        function GetCantidadObjeto1(){
+            const ListaCantidadObjeto1 = ref(db,'BotiquinN1234/CantidadObjeto1/');
+            const ListaCantidadObjeto2 = ref(db,'BotiquinN1234/CantidadObjeto2/');
+            const ListaDeteccionObjeto3 = ref(db,'BotiquinN1234/DeteccionObjeto3/');
+            const ListaDeteccionObjeto4 = ref(db,'BotiquinN1234/DeteccionObjeto4/');
+            onChildAdded(ListaCantidadObjeto1, (data) => {
+                TextoObjeto1.innerText = "Cantidad Objeto 1 = "+data.val();
+            });
+            onChildAdded(ListaCantidadObjeto2, (data) => {
+                TextoObjeto2.innerText ="Cantidad Objeto 2 = "+ data.val();
+            });
+            onChildAdded(ListaDeteccionObjeto3, (data) => {
+                TextoObjeto3.innerText ="Detección Objeto 3 = "+ data.val();
+            });
+            onChildAdded(ListaDeteccionObjeto4, (data) => {
+                NumeroDato.innerText = "Actualización de datos Número "+data.key;
+                TextoObjeto4.innerText = "Detección Objeto 4 = "+ data.val();
+            });
+        }
+        window.addEventListener('load',GetCantidadObjeto1);
+
+        import{getMetadata,getStorage,getDownloadURL,list,listAll} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+        import{ref as referencia} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+        const storage = getStorage();
+        const listRef = referencia(storage,'Botiquin#xxx/');
+        var ImagesArrayList=[];
+        var UltimosUsos=[];
+        const PrimerasFotos = await list(listRef,{
+             maxResults:8
+        });
+        var i=0;
+        var j=0;
+        PrimerasFotos.items.forEach((itemRef) => {
+            getMetadata(itemRef).then((metaData)=>{
+                document.getElementById("TextoImagen"+(j+1)).textContent=metaData.timeCreated;
+                j++;
+            });
+            getDownloadURL(itemRef).then((url)=>{
+                document.getElementById("Imagen"+(i+1)).src=url;
+                i++;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+
+* {
+	box-sizing: border-box;
+}
+  
+  .container-fluid{
+    position: relative;
+   top: -5px;;
+   
+  }
+  
+  
+  
+  .navbar{
+    background-color: red;
+    position: relative;
+    opacity: 950% !important;
+
+  }
+  
+  
+  
+  
+  .navbar_grey{
+    width: 100%;
+    opacity: 81%;
+    position: fixed;
+    
+  }
+  
+  
+  
+  .logo_usuario{
+    height: 90%;
+    }
+  
+   .boton1{
+    color: white;
+    border-radius: 20%;
+    background-color: red;
+    border-color: white;
+    
+    border-radius: 200px;
+    box-shadow: 0px 0px 20px black;
+    font-family:'Josefin Sans',sans-serif;
+    
+   }
+  
+   .boton2{
+    color: black;
+    border-radius: 20%;
+    background-color: white;
+    border-radius: 200px;
+    box-shadow: 0px 0px 20px black;
+    font-family:'Josefin Sans',sans-serif;
+   }
+
+   .header{
+    position: relative;
+    top: -400px;
+   
+
+   }
+   @media screen and (max-width: 800px) {
+    body {
+      padding: 40px 0;
+    }
+  
+    .contenido-principal {
+      flex-direction: column;
+    }
+  
+    .contenido-principal > * {
+      width: 100%;
+    }
+  }
