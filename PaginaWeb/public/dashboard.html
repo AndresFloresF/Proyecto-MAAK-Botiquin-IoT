@@ -17,7 +17,8 @@
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
-   <link href="/css/carrusel.css" rel="stylesheet">
+   <link href="css/carrusel.css" rel="stylesheet">
+   
    <link href="/css/header.css" rel="stylesheet">
 
 
@@ -79,18 +80,58 @@
       <h4 class="botellas_texto">Contenido de tus botellas:</h4>
 		  
       <main class="contenido-principal">
+
+
 			<img  src="img/alcohol.png" alt="Dome of the German Bundestag" class="contenido-principal__imagen">
-      <h6 id="TextoObjeto1"class="alcohol"></h6>
+      <div class="alcohol_div">
+      <h6 class="H6O1" id="TextoObjeto1"class="alcohol"></h6>
+      </div>
+      
+        <h6 class="H6O12" id="TextoObjeto2"class="alcohol2"></h6>
+      
+      
+
+      <div id="NumeroDato"></div>
       <img  src="img/alcohol.png" alt="Dome of the German Bundestag" class="contenido-principal__imagen">
-			<div class="contenido-principal__contenedor">
-				<h1 class="contenido-principal__titulo">Dome of the German Bundestag</h1>
-				<p class="contenido-principal__resumen">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a commodo orci. Nulla ipsum ante, auctor a odio id, bibendum accumsan mauris.
-				</p>
-				<p class="contenido-principal__resumen">
-					Fusce malesuada mollis ante, at elementum mi maximus nec. Praesent volutpat, tortor sed condimentum sagittis, mi diam fringilla nibh.
-				</p>
+
+
+
+      <div class="progress-bar">
+        <div class="progress-circle"></div>
+        <div class="progress-text">0%</div>
+      </div>
+
+
+
+
+      <img class="img_water" src="/img/zyro-image.png" alt="">
+      <img class="img_water2" src="/img/zyro-image.png" alt="">
+      
+      
+
+
+
+
+			<div class="contenido-principal__contenedor"> 
+				
+        <img class="vendas" src="img/vendas.png" alt="">
+
+        <h2 class="objeto1">Objeto 1</h2>
+
+        <div class="objeto3"  id="TextoObjeto3">
+          
+        </div>
+        <img class="medicina" src="img/medicina.png" alt="">
+        <h2 class="objeto2">Objeto 2</h2>
+
+        <div class="objeto4" id="TextoObjeto4">
+         
+        </div>
+        
+
+
 			</div>
+     
 		</main>
 
     <div class="texto_img">
@@ -105,36 +146,36 @@
 
 				<div class="carousel__lista">
 					<div class="carousel__elemento">
-						<img id="Imagen1" alt="Rock and Roll Hall of Fame">
+						<img class="img_carrusel"  id="Imagen1" alt="Rock and Roll Hall of Fame">
 						<p>Rock and Roll Hall of Fame</p>
 					</div>
 					<div class="carousel__elemento">
-						<img id="Imagen2" alt="Constitution Square - Tower I">
+						<img class="img_carrusel"  id="Imagen2" alt="Constitution Square - Tower I">
 						<p>Constitution Square - Tower I</p>
 					</div>
 					<div class="carousel__elemento">
-						<img id="Imagen3" alt="Empire State Building">
+						<img class="img_carrusel" id="Imagen3" alt="Empire State Building">
 						<p>Empire State Building</p>
 					</div>
 					<div class="carousel__elemento">
-						<img id="Imagen4" alt="Harmony Tower">
+						<img class="img_carrusel" id="Imagen4" alt="Harmony Tower">
 						<p>Harmony Tower</p>
 					</div>
 	
 					<div class="carousel__elemento">
-						<img id="Imagen5" alt="Empire State Building">
+						<img class="img_carrusel" id="Imagen5" alt="Empire State Building">
 						<p>Empire State Building</p>
 					</div>
 					<div class="carousel__elemento">
-						<img id="Imagen6" alt="Harmony Tower">
+						<img class="img_carrusel" id="Imagen6" alt="Harmony Tower">
 						<p>Harmony Tower</p>
 					</div>
 					<div class="carousel__elemento">
-						<img id="Imagen7" alt="Empire State Building">
+						<img class="img_carrusel" id="Imagen7" alt="Empire State Building">
 						<p>Empire State Building</p>
 					</div>
 					<div class="carousel__elemento">
-						<img id="Imagen8" alt="Harmony Tower">
+						<img class="img_carrusel" id="Imagen8" alt="Harmony Tower">
 						<p>Harmony Tower</p>
 					</div>
 				</div>
@@ -147,7 +188,8 @@
 			<div role="tablist" class="carousel__indicadores"></div>
 		</div>
 	</div>
-
+  
+  <script src="script.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 	<script src="/js/app.js"></script>
@@ -169,7 +211,7 @@
       
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
         const auth = getAuth(app);
-        signInWithEmailAndPassword(auth,"andresdavid_2000@hotmail.com","Majito510#")
+        signInWithEmailAndPassword(auth,"andresdavid_2000@hotmail.com","Majito510")
           .then((UserCredential) =>{
               console.log("logged in");
           }).catch((error) =>{
@@ -180,22 +222,49 @@
         import{getDatabase, ref, get, child,onChildAdded} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
         const db =getDatabase();
         function GetCantidadObjeto1(){
+
             const ListaCantidadObjeto1 = ref(db,'BotiquinN1234/CantidadObjeto1/');
             const ListaCantidadObjeto2 = ref(db,'BotiquinN1234/CantidadObjeto2/');
             const ListaDeteccionObjeto3 = ref(db,'BotiquinN1234/DeteccionObjeto3/');
             const ListaDeteccionObjeto4 = ref(db,'BotiquinN1234/DeteccionObjeto4/');
             onChildAdded(ListaCantidadObjeto1, (data) => {
-                TextoObjeto1.innerText = "Cantidad Objeto 1 = "+data.val();
+                TextoObjeto1.innerText = data.val() + " %";
             });
             onChildAdded(ListaCantidadObjeto2, (data) => {
-                TextoObjeto2.innerText ="Cantidad Objeto 2 = "+ data.val();
+                TextoObjeto2.innerText = data.val()+ " %";
             });
             onChildAdded(ListaDeteccionObjeto3, (data) => {
-                TextoObjeto3.innerText ="Detección Objeto 3 = "+ data.val();
-            });
-            onChildAdded(ListaDeteccionObjeto4, (data) => {
+                TextoObjeto3.innerText = data.val();
+                console.log(TextoObjeto3.textContent + "aqui");
+
+                if (TextoObjeto3.textContent === "Sí") {
+                  document.querySelector('.objeto3').style.backgroundColor = "#00C42D";
+                } else {
+                  document.querySelector('.objeto3').style.backgroundColor = "red";
+                }
+
+                console.log(data.key);
                 NumeroDato.innerText = "Actualización de datos Número "+data.key;
-                TextoObjeto4.innerText = "Detección Objeto 4 = "+ data.val();
+                console.log(TextoObjeto3.textContent + "aqui");
+
+                
+
+
+            });
+
+           
+  
+            
+
+            onChildAdded(ListaDeteccionObjeto4, (data) => {
+  
+                TextoObjeto4.innerText = ""+ data.val() ;
+
+                if (TextoObjeto4.textContent === "Sí") {
+                  document.querySelector('.objeto4').style.backgroundColor = "#00C42D";
+                } else {
+                  document.querySelector('.objeto4').style.backgroundColor = "red";
+                }
             });
         }
         window.addEventListener('load',GetCantidadObjeto1);
@@ -222,5 +291,19 @@
             });
         });
     </script>
+    <script>
+       function updateProgress(TextoObjeto1) {
+
+                const progressCircle = document.querySelector('.progress-circle');
+                const progressText = document.querySelector('.progress-text');
+  
+                  progressCircle.style.width = TextoObjeto1 + '%';
+                  progressText.textContent =  TextoObjeto1 + '%';
+
+                 
+                  updateProgress(data.val()); // Set progress to 50%
+
+          }
+    </script>
 </body>
-</html>
+</html> 
